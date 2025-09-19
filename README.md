@@ -7,36 +7,34 @@ It covers model development, experiment tracking, containerization, CI/CD automa
 
 ## 📌 Project Overview
 - **Problem:** Predict whether a customer will churn.  
-- **Solution:** Machine learning classification pipeline with deployment.  
+- **Solution:** Machine Learning classification pipeline.  
 - **MLOps Stack:**  
-  - Model Training & Evaluation → Python, Scikit-learn  
+  - Preprocessing → `data_preprocessing.py`  
+  - Model Training & Evaluation → `model_utils.py`  
   - Experiment Tracking → MLflow  
   - Model Serialization → Joblib  
   - Containerization → Docker  
   - CI/CD → GitHub Actions  
-  - Deployment → Hugging Face Spaces (interactive app)  
+  - Deployment → Streamlit app / Hugging Face Spaces  
 
 ---
 
 ## 📂 Project Structure
 .
 ├── app.py # Streamlit/FastAPI app for predictions
-├── train.py # Model training script
+├── train.py # End-to-end training pipeline
 ├── predict.py # Script for inference
-├── src/ # Helper modules (data prep, utils, etc.)
-│ ├── data_preprocessing.py
-│ ├── model_utils.py
-│ └── init.py
-├── config.yaml # Model and pipeline configuration
+├── data_preprocessing.py # Data loading & preprocessing functions
+├── model_utils.py # Model training, evaluation, save/load utils
+├── init.py # Makes imports cleaner
+├── config.yaml # Configurations (hyperparameters, paths)
 ├── requirements.txt # Python dependencies
-├── Dockerfile # Docker image setup
-├── docker-compose.yml # Multi-service setup (optional)
+├── Dockerfile # Docker container setup
 ├── .github/
 │ └── workflows/
 │ └── ci-cd.yml # GitHub Actions workflow for CI/CD
-├── README.md # Project documentation
-├── LICENSE # License file
-└── .gitignore # Ignore unnecessary files
+├── .gitignore # Ignore unnecessary files
+└── README.md # Project documentation
 
 
 ---
@@ -77,9 +75,9 @@ Deployment: Streamlit, Docker, Hugging Face
 CI/CD: GitHub Actions
 
 ## Results
-
+Automated data preprocessing & training.
 Improved prediction accuracy with hyperparameter tuning.
-Automated experiment logging with MLflow.
+Reproducible experiments with MLflow.
 Seamless deployment with Docker + GitHub Actions.
 
 ## Contributing
